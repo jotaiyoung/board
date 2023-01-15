@@ -20,22 +20,27 @@
             </tr>
         </thead>
         <?php
-        // board테이블에서 idx를 기준으로 내림차순해서 5개까지 표시
+
           $sql = mq("select * from board order by idx desc limit 0,5"); 
             while($board = $sql->fetch_array())
             {
-              //title변수에 DB에서 가져온 title을 선택
+
               $title=$board["title"]; 
               if(strlen($title)>30)
               { 
-                //title이 30을 넘어서면 ...표시
+
                 $title=str_replace($board["title"],mb_substr($board["title"],0,30,"utf-8")."...",$board["title"]);
               }
         ?>
       <tbody>
         <tr>
           <td width="70"><?php echo $board['idx']; ?></td>
-          <td width="500"><a href=""><?php echo $title;?></a></td>
+          <td width="500"><?php 
+          $lockimg = "<img src='/img/lock.png' alt='lock' title='lock' width='20' height='20'/>"; 
+          if($board['lock_post']=="1"){
+          ?> <a href='/page/pboard/ck_read.php?idx=<?php echo $board["idx"];?>'><?php echo $title, $lockimg;
+          } else {?>         
+          <a href="/page/pboard/read.php?idx=<?php echo $board["idx"];?>"><?php echo $title;}?></a></td>
           <td width="120"><?php echo $board['name']?></td>
           <td width="100"><?php echo $board['date']?></td>
           <td width="100"><?php echo $board['hit']; ?></td>

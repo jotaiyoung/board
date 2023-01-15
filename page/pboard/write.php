@@ -19,11 +19,15 @@
 					</div>
 					<div class="wi_line"></div>
 					<div id="in_content">
+					
 						<textarea name="content" id="ucontent" placeholder="내용" required="required"></textarea>
 					</div>					
 					<div id="in_pw">
 						<input type="password" name="pw" id="upw" placeholder="비밀번호" required="required">
-					</div>					
+					</div>	
+					<div id="in_lock">
+						<input type="checkbox" value="1" name="lockpost">비공개하기
+					</div>				
 					<div class="bt_se">
 						<button type="submit">글작성</button>
 					</div>				

@@ -6,6 +6,8 @@
     
     function mq($sql)
     {
-        global $db;
+        global $db;        
         return $db->query($sql);
+        
     }
+    ?>
